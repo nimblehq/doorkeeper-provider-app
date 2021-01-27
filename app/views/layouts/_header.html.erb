@@ -1,6 +1,4 @@
-<header class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
-  <a class="navbar-brand mb-0 h1" href="/">Doorkeeper Provider Example</a>
-
+<header class="navbar navbar-expand-lg sticky-top navbar-light bg-light <%= 'guest-user-header' if !current_user && controller_name != 'home'%>">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -14,10 +12,9 @@
         <li class="nav-item"><%= link_to 'Authorized Applications', oauth_authorized_applications_path, class: 'nav-link' %></li>
         <li class="nav-item"><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-secondary'%></li>
       </ul>
-    <% else %>
+    <% elsif controller_name == 'home' %>
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"><%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link' %></li>
     </ul>
     <% end %>
   </div>
