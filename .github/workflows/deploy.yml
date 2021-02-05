@@ -25,4 +25,4 @@ jobs:
         if: github.ref == 'refs/heads/chore/deploy-onesiam'
         run: |
           git remote add production https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP.git
-          git push -f production origin/development:refs/heads/master
+          git push -f production origin/chore/deploy-onesiam:refs/heads/master
